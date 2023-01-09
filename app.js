@@ -12,6 +12,8 @@ app.set("views", path.join(__dirname, "views"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+mongoose.set("strictQuery", false);
+
 mongoose
   .connect(process.env.mongoDB)
   .then(() => {
@@ -86,7 +88,6 @@ app.post("/", async (req, res) => {
     res.redirect("/");
   } else {
     List.findOne({ name: listName }, function (err, foundList) {
-      console.log(foundList.items);
       foundList.items.push(item);
       foundList.save();
       res.redirect("/" + listName);
