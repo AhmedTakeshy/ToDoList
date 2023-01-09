@@ -10,8 +10,8 @@
   "author": "",
   "license": "ISC",
   "engines": {
-    "node": "16.x",
-    "npm": "8.x"
+    "node": "18.x",
+    "npm": "9.x"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
