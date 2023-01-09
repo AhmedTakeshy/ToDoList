@@ -1,11 +1,9 @@
 require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
-const date = require(__dirname + "/date.js");
 const _ = require("lodash");
 const mongoose = require("mongoose");
 const path = require("path");
-const { getDate } = require("./date");
 
 const app = express();
 
@@ -48,8 +46,20 @@ const item3 = new Item({
   name: "<-- Hit this to delete an item.",
 });
 
+function getDate() {
+  const today = new Date();
+
+  const options = {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  };
+
+  return today.toLocaleDateString("en-US", options);
+}
+
 const defaultItems = [item1, item2, item3];
-const currentDay = date.getDate();
+const currentDay = getDate();
 
 app.get("/", function (req, res) {
   Item.find({}, function (err, foundItems) {
