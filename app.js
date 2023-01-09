@@ -5,6 +5,7 @@ const date = require(__dirname + "/date.js");
 const _ = require("lodash");
 const mongoose = require("mongoose");
 const path = require("path");
+const { getDate } = require("./date");
 
 const app = express();
 
