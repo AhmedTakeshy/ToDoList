@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "functions": {
+  "functions": [{
     "app": "app.js"
-  },
+  }],
   "routes": [
     {
       "src": "/",
